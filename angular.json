@@ -102,6 +102,37 @@
           }
         }
       }
+    },
+    "flm-lib": {
+      "projectType": "library",
+      "root": "projects/flm-lib",
+      "sourceRoot": "projects/flm-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/flm-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/flm-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/flm-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/flm-lib/src/test.ts",
+            "tsConfig": "projects/flm-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/flm-lib/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }
